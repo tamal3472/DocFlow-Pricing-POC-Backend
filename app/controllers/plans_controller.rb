@@ -14,6 +14,7 @@ class PlansController < ApplicationController
               end
 
     user_limit = @plan.user_limit
+    # adds the amount for the additional users if any
     charges += (number_of_user - user_limit) * @plan.additional_user_fee if number_of_user > user_limit
 
     render json: { calculated_amount: charges }
