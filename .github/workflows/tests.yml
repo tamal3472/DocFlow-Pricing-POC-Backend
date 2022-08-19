@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: ruby/setup-ruby@master #this will use by default the .ruby-version file in the repository
-      - name: Build and run tests
-      - name: Install environments
+      - name: Install required libs
         run: |
           sudo apt-get -yqq install libpq-dev
+      - name: Build and run tests
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432
           RAILS_ENV: test
