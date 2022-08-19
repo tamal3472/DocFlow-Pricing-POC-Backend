@@ -34,27 +34,27 @@ RSpec.describe PlansController, type: :controller do
           },
         ],
       }
-      it 'returns response of json' do
-        get :index, params: { format: :json }
-        expect(JSON.parse(response.body)).to eq(plan_list)
-      end
     end
 
-    describe 'GET #calculate_bill' do
-      let(:plan_startup) { FactoryBot.create(:plan, :startup) }
-      context 'when search succeeds' do
-        render_views
-        it 'returns response of calculated bill for monthly' do
-          get :calculate_bill,
-              params: { number_of_user: 22, id: plan_startup.id, subscription_type: 'monthly', format: :json }
-          expect(JSON.parse(response.body)).to eq('calculated_amount' => '139.0')
-        end
+    it 'returns response of json' do
+      get :index, params: { format: :json }
+      expect(JSON.parse(response.body)).to eq(plan_list)
+    end
+  end
 
-        it 'returns response of calculated bill for yearly' do
-          get :calculate_bill,
-              params: { number_of_user: 22, id: plan_startup.id, subscription_type: 'yearly', format: :json }
-          expect(JSON.parse(response.body)).to eq('calculated_amount' => '137.0')
-        end
+  describe 'GET #calculate_bill' do
+    let(:plan_startup) { FactoryBot.create(:plan, :startup) }
+    context 'when search succeeds' do
+      it 'returns response of calculated bill for monthly' do
+        get :calculate_bill,
+            params: { number_of_user: 22, id: plan_startup.id, subscription_type: 'monthly', format: :json }
+        expect(JSON.parse(response.body)).to eq('calculated_amount' => '139.0')
+      end
+
+      it 'returns response of calculated bill for yearly' do
+        get :calculate_bill,
+            params: { number_of_user: 22, id: plan_startup.id, subscription_type: 'yearly', format: :json }
+        expect(JSON.parse(response.body)).to eq('calculated_amount' => '137.0')
       end
     end
   end
