@@ -80,9 +80,9 @@ The expected response will be
 - Calculate bill for a for a subscription plan
  ```bash
 params: {
-  *id* -> number, required, Plan id for which the bill will be calculated)
-  *number_of_user* -> number, required, Total number of users will be using the package)
-  *subcription_type* -> string, required, 'mothly' or 'yearly'
+  id -> number, required, Plan id for which the bill will be calculated
+  number_of_user -> number, required, Total number of users will be using the package
+  subscription_type -> string, required, 'mothly' or 'yearly'
 }
 
   GET  localhost:3000/plans/2/calculate_bill?number_of_user=100&subscription_type='yearly'
