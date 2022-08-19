@@ -28,12 +28,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-gem 'faker'
-gem 'grape'
-gem 'grape-entity'
-gem 'grape_logging'
-gem 'grape_on_rails_routes'
 gem 'rack-cors'
 
 group :development, :test do

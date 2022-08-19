@@ -1,4 +1,8 @@
-Plan.where(name: :solo).first_or_create!(price_monthly: 2.0)
+Plan.where(name: :solo).first_or_create!(
+  price_monthly: 2.0,
+  price_yearly: 2.0,
+  user_limit: 1
+)
 Plan.where(name: :startup).first_or_create!(
   price_monthly: 20.0,
   price_yearly: 18.0,

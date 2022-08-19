@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2022_08_17_174253) do
 
   create_table "plans", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "price_monthly", precision: 9, scale: 2
-    t.decimal "price_yearly", precision: 9, scale: 2
-    t.string "additional_user_fee"
-    t.integer "user_limit"
+    t.decimal "price_monthly", precision: 9, scale: 2, null: false
+    t.decimal "price_yearly", precision: 9, scale: 2, null: false
+    t.decimal "additional_user_fee", precision: 9, scale: 2
+    t.integer "user_limit", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_plans_on_name", unique: true
